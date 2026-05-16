@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Shourya | Video Editor Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:linear-gradient(180deg,#050505,#0a0a0a);
+      color:white;
+      overflow-x:hidden;
+      -webkit-overflow-scrolling:touch;
+      transition:background 0.45s ease;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:92%;
+      max-width:1400px;
+      margin:auto;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:999;
+      backdrop-filter: blur(18px) saturate(140%);
+      background:rgba(255,255,255,0.03);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:22px 0;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:800;
+    }
+
+    .logo span{
+      color:#ff5a1f;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:35px;
+      color:#cfcfcf;
+      font-size:14px;
+    }
+
+    .nav-links a{
+      transition:color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .nav-links a:hover{
+      color:#ff5a1f;
+      text-shadow:0 0 12px rgba(255,90,31,0.75);
+    }
+
+    .hire-btn{
+      background:white;
+      color:black;
+      padding:12px 24px;
+      border-radius:999px;
+      font-weight:700;
+      transition:0.3s;
+    }
+
+    .hire-btn:hover{
+      transform:translateY(-3px);
+    }
+
+    /* HERO */
+
+    .hero{
+      padding:40px 0;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr 2fr 1fr;
+      gap:22px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:28px;
+      padding:28px;
+      border:1px solid rgba(255,255,255,0.05);
+      overflow:hidden;
+      transition:transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      backdrop-filter: blur(8px) saturate(120%);
+      -webkit-backdrop-filter: blur(8px) saturate(120%);
+    }
+
+    .card:hover{
+      transform:translateY(-7px);
+      border-color:rgba(255,255,255,0.55);
+      box-shadow:0 24px 70px rgba(255,255,255,0.12);
+    }
+
+    .dark-card:hover{
+      box-shadow:0 24px 70px rgba(255,255,255,0.12);
+    }
+
+    .orange-card:hover{
+      box-shadow:0 0 30px rgba(255,255,255,0.35), 0 0 80px rgba(255,255,255,0.16);
+    }
+
+    .dark-card{
+      background:linear-gradient(180deg, rgba(13,13,13,0.7), rgba(10,10,10,0.45));
+    }
+
+    .orange-card{
+      background:linear-gradient(135deg,#ff5a1f,#ff2d2d);
+      color:black;
+      backdrop-filter: blur(4px) saturate(120%);
+    }
+    .orange-card .stat,
+    .orange-card p{
+      color: #ffffff;
+    }
+
+    .mini-title{
+      font-size:12px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:#8d8d8d;
+      margin-bottom:18px;
+    }
+
+    .featured{
+      font-size:72px;
+      line-height:1;
+      font-weight:900;
+      color:#ff5a1f;
+    }
+
+    .main-hero{
+      min-height:460px;
+      display:flex;
+      align-items:flex-end;
+
+      /* reduced gradient opacity so background image is more visible */
+      background:
+      linear-gradient(to top, rgba(0,0,0,0.45), rgba(0,0,0,0.06)),
+      url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1400&auto=format&fit=crop');
+
+      background-size:cover;
+      background-position:center;
+    }
+
+    .hero-content h1{
+      font-size:96px;
+      line-height:0.9;
+      margin-bottom:18px;
+      font-weight:900;
+    }
+
+    .hero-content p{
+      max-width:620px;
+      color:#d0d0d0;
+      line-height:1.8;
+      font-size:17px;
+    }
+
+    .orange-dot{
+      color:#ff5a1f;
+    }
+
+    .stat{
+      font-size:88px;
+      line-height:1;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+
+    .stat.orange{
+      color:#ff5a1f;
+    }
+
+    .stat-desc{
+      color:#bdbdbd;
+      line-height:1.7;
+    }
+
+    body{
+      cursor:none;
+      position:relative;
+    }
+
+    body::before{
+      content:'';
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:url('https://grainy-gradients.vercel.app/noise.svg');
+      opacity:0.08;
+      mix-blend-mode:screen;
+      z-index:-2;
+    }
+
+    .background-glow{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,50%), rgba(255,90,31,0.14), transparent 12%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08), transparent 14%);
+      z-index:-1;
+    }
+
+    .cursor-dot,
+    .cursor-blur{
+      position:fixed;
+      top:0;
+      left:0;
+      pointer-events:none;
+      transform:translate(-50%, -50%);
+      z-index:10001;
+    }
+
+    .cursor-dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:#ff5a1f;
+      box-shadow:0 0 20px rgba(255,90,31,0.9);
+      mix-blend-mode:screen;
+    }
+
+    .cursor-blur{
+      width:96px;
+      height:96px;
+      border-radius:50%;
+      background:rgba(255,90,31,0.16);
+      filter:blur(14px);
+      opacity:0.9;
+    }
+
+    .marquee-wrapper{
+      overflow:hidden;
+      margin:30px 0;
+      border-radius:999px;
+      padding:16px 0;
+      backdrop-filter:blur(18px);
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .marquee-track{
+      display:inline-block;
+      white-space:nowrap;
+      animation:marquee 18s linear infinite;
+      color:#ff5a1f;
+      font-weight:700;
+      letter-spacing:2px;
+      padding-left:100%;
+    }
+
+    @keyframes marquee{
+      from{transform:translateX(0);}
+      to{transform:translateX(-100%);}
+    }
+
+    .card,
+    .service-card,
+    .video-card,
+    .contact-card{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(18px) saturate(130%);
+      -webkit-backdrop-filter: blur(18px) saturate(130%);
+      box-shadow:0 24px 70px rgba(0,0,0,0.25);
+      transition:transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+      position:relative;
+      overflow:hidden;
+      will-change:transform,opacity;
+    }
+
+    .card:hover,
+    .service-card:hover,
+    .video-card:hover,
+    .contact-card:hover{
+      transform:perspective(1200px) translateY(-8px) scale(1.01);
+      border-color:rgba(255,90,31,0.45);
+      box-shadow:0 32px 90px rgba(255,90,31,0.18);
+    }
+
+    .video-card .video-preview{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(0,0,0,0.70);
+      backdrop-filter:blur(8px);
+      opacity:0;
+      transform:scale(0.98);
+      transition:opacity 0.35s ease, transform 0.35s ease;
+      color:#fff;
+      font-size:12px;
+      letter-spacing:0.24em;
+      text-transform:uppercase;
+      pointer-events:none;
+      z-index:2;
+    }
+
+    .video-card:hover .video-preview{
+      opacity:1;
+      transform:scale(1);
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:opacity 0.85s ease, transform 0.85s ease;
+      will-change:opacity, transform;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .hero-grid,
+    .second-grid,
+    .portfolio-grid,
+    .services,
+    .contact-grid{
+      will-change:transform,opacity;
+    }
+
+    .intro-overlay{
+      position:fixed;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#000;
+      z-index:2000;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 0.8s ease;
+    }
+
+    /* Prevent scrolling while intro is visible */
+    .no-scroll{ overflow:hidden; }
+
+    .intro-overlay.visible{
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    .intro-name{
+      font-size:64px;
+      font-weight:900;
+      letter-spacing:2px;
+      color:#ffffff;
+      transform:scale(1);
+      transition:transform 0.9s cubic-bezier(.2,.9,.2,1), opacity 0.9s ease;
+      will-change:transform,opacity;
+      text-align:center;
+    }
+
+    .intro-name .orange-dot{ color:#ff5a1f; }
+
+    .intro-overlay.zoom-out .intro-name{
+      transform:scale(1.6);
+      opacity:0;
+    }
+
+    .second-grid{
+      display:grid;
+      grid-template-columns:2fr 1.5fr 1fr;
+      gap:22px;
+      margin-top:22px;
+    }
+
+    .about-text{
+      font-size:21px;
+      line-height:1.8;
+      color:#ececec;
+    }
+
+    .highlight{
+      color:#ff5a1f;
+      font-weight:700;
+    }
+
+    .small-bio{
+      margin-top:22px;
+      color:#9f9f9f;
+      line-height:1.8;
+    }
+
+    .tool-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:15px;
+      margin-top:20px;
+    }
+
+    .tool{
+      background:#171717;
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.05);
+      font-weight:600;
+    }
+
+    .signature{
+      font-size:21px;
+      line-height:1.7;
+      color:#ececec;
+    }
+
+    /* SECTION */
+
+    .section{
+      padding:90px 0;
+    }
+
+    .section-tag{
+      font-size:13px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:#8f8f8f;
+      margin-bottom:14px;
+    }
+
+    .section h2{
+      font-size:58px;
+      line-height:1.1;
+      margin-bottom:50px;
+    }
+
+    /* SERVICES */
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:22px;
+    }
+
+    .service-card{
+      background:#101010;
+      padding:35px;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,0.05);
+      transition:0.3s;
+    }
+
+    .service-card:hover{
+      transform:translateY(-6px);
+      border-color:#ff5a1f;
+    }
+
+    .service-card h3{
+      margin-bottom:14px;
+      font-size:22px;
+    }
+
+    .service-card p{
+      color:#a5a5a5;
+      line-height:1.7;
+    }
+
+    /* PORTFOLIO */
+
+    .portfolio-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+      gap:24px;
+    }
+
+    .video-card{
+      background:#0f0f0f;
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.06);
+      transition:0.4s;
+    }
+
+    .video-card:hover{
+      transform:translateY(-5px);
+      border-color:#ff5a1f;
+    }
+
+    .video-card iframe{
+      width:100%;
+      height:260px;
+      border:none;
+      display:block;
+      background:black;
+    }
+
+    /* Custom lazy-loaded player */
+    .video-player{
+      position:relative;
+      padding-top:56.25%;
+      background:#000;
+      overflow:hidden;
+    }
+
+    .video-player iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+
+    .player-poster{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.25));
+      color:#fff;
+      border:none;
+      cursor:pointer;
+      transition:opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    /* Custom native video + controls */
+    .native-video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      background:black;
+      background-position:center;
+      display:block;
+      z-index:4;
+    }
+
+    .custom-controls{
+      position:absolute;
+      left:12px;
+      right:12px;
+      bottom:12px;
+      min-height:48px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:8px 14px;
+      background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.18));
+      border-radius:12px;
+      backdrop-filter: blur(6px);
+      z-index:6;
+      box-sizing:border-box;
+      justify-content:flex-start;
+    }
+
+    .custom-controls button{
+      background:transparent;
+      border:none;
+      color:#fff;
+      font-size:18px;
+      cursor:pointer;
+      width:44px;
+      height:44px;
+      display:inline-grid;
+      place-items:center;
+      border-radius:8px;
+      flex:0 0 auto;
+    }
+
+    .ctrl-progress{
+      flex:1 1 auto;
+      height:8px;
+      background:rgba(255,255,255,0.06);
+      border-radius:6px;
+      overflow:hidden;
+      cursor:pointer;
+      margin:0 8px;
+    }
+
+    .ctrl-progress-bar{
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,#ff7a45,#ff4a2a);
+      transition:width 0.08s linear;
+    }
+
+    .ctrl-time{ color:#f3f3f3; font-size:13px; margin-left:6px; margin-right:6px; white-space:nowrap; flex:0 0 auto; }
+
+    .player-poster:focus{ outline:2px solid rgba(255,90,31,0.6); }
+
+    .play-btn{
+      width:72px;
+      height:72px;
+      border-radius:50%;
+      background:#ff5a1f;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 10px 30px rgba(255,90,31,0.25);
+    }
+
+    .play-btn:after{
+      content:'';
+      display:block;
+      margin-left:6px;
+      width:0;
+      height:0;
+      border-top:12px solid transparent;
+      border-bottom:12px solid transparent;
+      border-left:18px solid #fff;
+    }
+
+    .video-info{
+      padding:24px;
+    }
+
+    .video-info h3{
+      font-size:23px;
+      margin-bottom:8px;
+    }
+
+    .video-info p{
+      color:#a5a5a5;
+      line-height:1.7;
+    }
+
+    /* CONTACT */
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+    }
+
+    .contact-card{
+      background:#101010;
+      padding:40px;
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    input,
+    textarea{
+      width:100%;
+      background:#171717;
+      border:none;
+      outline:none;
+      padding:18px;
+      border-radius:16px;
+      color:white;
+      margin-bottom:18px;
+      font-family:inherit;
+    }
+
+    textarea{
+      min-height:150px;
+      resize:none;
+    }
+
+    button{
+      width:100%;
+      border:none;
+      padding:18px;
+      border-radius:16px;
+      background:linear-gradient(135deg,#ff5a1f,#ff2d2d);
+      color:white;
+      font-size:16px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .socials{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      margin-top:28px;
+    }
+
+    .socials a{
+      color:#d0d0d0;
+      transition:0.3s;
+    }
+
+    .socials a:hover{
+      color:#ff5a1f;
+    }
+
+    .scroll-indicator{
+      position:fixed;
+      right:24px;
+      top:50%;
+      transform:translateY(-50%);
+      width:54px;
+      height:210px;
+      border-radius:999px;
+      padding:12px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      box-shadow:0 24px 80px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.02);
+      z-index:1001;
+      backdrop-filter: blur(12px) saturate(140%);
+      -webkit-backdrop-filter: blur(12px) saturate(140%);
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.06);
+      opacity:0;
+      transition:opacity 0.35s ease, transform 0.35s ease;
+      pointer-events:none;
+    }
+
+    .scroll-indicator.visible{
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    .scroll-indicator-track{
+      position:relative;
+      width:10px;
+      height:100%;
+      background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border-radius:999px;
+      overflow:hidden;
+    }
+
+    .scroll-indicator-dot{
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%) translateY(0);
+      width:14px;
+      height:14px;
+      border-radius:50%;
+      background:linear-gradient(180deg,#ff7a45,#ff4a2a);
+      box-shadow:0 0 28px rgba(255,90,31,0.85), 0 6px 18px rgba(0,0,0,0.45);
+      transition:transform 0.2s ease;
+    }
+
+    .scroll-indicator-percent{
+      position:absolute;
+      bottom:-32px;
+      right:0;
+      font-size:12px;
+      color:#ff5a1f;
+      letter-spacing:1px;
+      font-weight:700;
+    }
+
+    footer{
+      padding:40px 0;
+      text-align:center;
+      color:#777;
+      border-top:1px solid rgba(255,255,255,0.05);
+      margin-top:80px;
+    }
+
+    /* Scrollbar (webkit) */
+    ::-webkit-scrollbar{ width:10px; }
+    ::-webkit-scrollbar-track{ background:transparent; }
+    ::-webkit-scrollbar-thumb{
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border-radius:10px;
+      border:2px solid transparent;
+      background-clip: padding-box;
+    }
+    /* Firefox */
+    html{ scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.06) transparent; }
+
+    /* RESPONSIVE */
+
+    @media(max-width:1100px){
+
+      .hero-grid,
+      .second-grid,
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-content h1{
+        font-size:62px;
+      }
+
+      .section h2{
+        font-size:42px;
+      }
+    }
+
+    @media(max-width:700px){
+
+      .nav-links{
+        display:none;
+      }
+
+      .hero-content h1{
+        font-size:48px;
+      }
+
+      .featured{
+        font-size:54px;
+      }
+
+      .stat{
+        font-size:62px;
+      }
+    }
+
+    /* INTRO OVERLAY */
+    .intro-overlay{
+      position:fixed;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#000;
+      z-index:2000;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 0.8s ease;
+    }
+
+    /* Prevent scrolling while intro is visible */
+    .no-scroll{ overflow:hidden; }
+
+    .intro-overlay.visible{
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    .intro-name{
+      font-size:64px;
+      font-weight:900;
+      letter-spacing:2px;
+      color:#ffffff;
+      transform:scale(1);
+      transition:transform 0.9s cubic-bezier(.2,.9,.2,1), opacity 0.9s ease;
+      will-change:transform,opacity;
+      text-align:center;
+    }
+
+    .intro-name .orange-dot{ color:#ff5a1f; }
+
+    .intro-overlay.zoom-out .intro-name{
+      transform:scale(1.6);
+      opacity:0;
+    }
+
+  </style>
+
+</head>
+
+<body class="no-scroll">
+
+  <div class="intro-overlay visible" aria-hidden="true">
+    <div class="intro-name">Shourya<span class="orange-dot">.</span></div>
+  </div>
+
+  <div class="scroll-indicator" aria-hidden="true">
+    <div class="scroll-indicator-track">
+      <span class="scroll-indicator-dot"></span>
+    </div>
+    <span class="scroll-indicator-percent">0%</span>
+  </div>
+
+  <div class="background-glow" aria-hidden="true"></div>
+  <div class="cursor-blur" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="container nav-inner">
+
+      <div class="logo">
+        <span>●</span> Shourya.
+      </div>
+
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a href="#contact" class="hire-btn">
+        Hire Me ↗
+      </a>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero container">
+
+    <div class="hero-grid">
+
+      <!-- LEFT -->
+
+      <div style="display:flex;flex-direction:column;gap:22px;">
+
+        <div class="card dark-card">
+
+          <div class="mini-title">
+            Available
+          </div>
+
+          <div class="featured">
+            Featured
+          </div>
+
+          <p style="margin-top:18px;color:#9f9f9f;">
+            Open for creative collaborations
+          </p>
+
+        </div>
+
+        <div class="card orange-card">
+
+          <div class="mini-title">
+            Total Reach
+          </div>
+
+          <div class="stat">
+            100K+
+          </div>
+
+          <p>
+            Views generated through visual storytelling
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CENTER -->
+
+      <div class="card main-hero">
+
+        <div class="hero-content">
+
+          <div class="mini-title">
+            Video Editor • Creative Designer • Motion Visuals
+          </div>
+
+          <h1>
+            Shourya<span class="orange-dot">.</span>
+          </h1>
+
+          <p>
+            I’m a creative editor focused on cinematic visuals,
+            short-form content, and engaging digital storytelling.
+            Alongside editing, I’m exploring design, Python,
+            and machine learning to merge creativity with technology.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+
+      <div style="display:flex;flex-direction:column;gap:22px;">
+
+        <div class="card dark-card">
+
+          <div class="mini-title">
+            Experience
+          </div>
+
+          <div class="stat orange">
+            2+
+          </div>
+
+          <div class="stat-desc">
+            Years of editing and creative work
+          </div>
+
+        </div>
+
+        <div class="card dark-card">
+
+          <div class="mini-title">
+            Projects
+          </div>
+
+          <div class="stat">
+            50+
+          </div>
+
+          <div class="stat-desc">
+            Videos and creative projects completed
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="marquee-wrapper reveal">
+      <div class="marquee-track">Video Editing · Motion Graphics · AMV · Short-form · Cinematic Storytelling ·</div>
+    </div>
+
+    <!-- SECOND GRID -->
+
+    <div class="second-grid">
+
+      <div class="card dark-card" id="about">
+
+        <div class="mini-title">
+          About
+        </div>
+
+        <div class="about-text">
+          Creating <span class="highlight">cinematic edits</span>,
+          motion graphics, and engaging short-form visuals
+          designed to hold attention and tell stories.
+        </div>
+
+        <div class="small-bio">
+          Specialized in reels, AMVs, event coverage,
+          color grading, and cinematic motion visuals.
+        </div>
+
+      </div>
+
+      <div class="card dark-card">
+
+        <div class="mini-title">
+          Toolkit
+        </div>
+
+        <div class="tool-grid">
+
+          <div class="tool">Premiere Pro</div>
+          <div class="tool">After Effects</div>
+          <div class="tool">DaVinci Resolve</div>
+          <div class="tool">Canva Pro</div>
+
+        </div>
+
+      </div>
+
+      <div class="card dark-card">
+
+        <div class="mini-title">
+          Achievement
+        </div>
+
+        <div class="signature">
+          High-retention edits and cinematic visuals across multiple creative projects.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section class="section container" id="services">
+
+    <div class="section-tag">
+      Services
+    </div>
+
+    <h2>
+      Creative Services.
+    </h2>
+
+    <div class="services">
+
+      <div class="service-card">
+        <h3>YouTube Editing</h3>
+        <p>Long-form storytelling edits optimized for engagement.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Short-form Content</h3>
+        <p>Reels, TikToks, and Shorts built for retention.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Motion Graphics</h3>
+        <p>Dynamic motion visuals and creative animations.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Color Grading</h3>
+        <p>Professional cinematic color treatment and mood.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>AMV Editing</h3>
+        <p>Fast-paced anime edits with cinematic transitions.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Event Coverage</h3>
+        <p>Cinematic event visuals and live storytelling.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PORTFOLIO -->
+
+  <section class="section container" id="work">
+
+    <div class="section-tag">
+      Portfolio
+    </div>
+
+    <h2>
+      Selected Visual Work.
+    </h2>
+
+    <div class="portfolio-grid">
+
+      <!-- Motion Graphics -->
+
+      <div class="video-card">
+
+        <div class="video-player" data-src="Recap of Nexus 1.mp4">
+          <button class="player-poster" aria-label="Play video">
+            <span class="play-btn" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <div class="video-info">
+          <h3>Recap of Nexus 1.0</h3>
+          <p>Dynamic cinematic motion visual edit.</p>
+        </div>
+
+      </div>
+
+      <div class="video-card">
+
+      <div class="video-player" data-src="partheeb.mp4">
+        <button class="player-poster" aria-label="Play video">
+          <span class="play-btn" aria-hidden="true"></span>
+        </button>
+      </div>
+
+        <div class="video-info">
+          <h3>Drone Promotion</h3>
+          <p>Creative animated storytelling sequence.</p>
+        </div>
+
+      </div>
+
+      <div class="video-card">
+
+      <div class="video-player" data-src="Nexus 2.0 finalists.mp4">
+        <button class="player-poster" aria-label="Play video">
+          <span class="play-btn" aria-hidden="true"></span>
+        </button>
+      </div>
+
+        <div class="video-info">
+          <h3>Teams of Nexus 2.0</h3>
+          <p>Smooth cinematic motioon graphics.</p>
+        </div>
+
+      </div>
+
+      <!-- Color Grade -->
+
+      <div class="video-card">
+
+      <div class="video-player" data-src="Catto Color grade test.mp4">
+        <button class="player-poster" aria-label="Play video">
+          <span class="play-btn" aria-hidden="true"></span>
+        </button>
+      </div>
+
+        <div class="video-info">
+          <h3>Color Grading of a cat</h3>
+          <p>Professional cinematic mood grading.</p>
+        </div>
+
+      </div>
+
+      <!-- AMV -->
+
+      <div class="video-card">
+
+      <div class="video-player" data-src="CSM AMV edit test.mp4">
+        <button class="player-poster" aria-label="Play video">
+          <span class="play-btn" aria-hidden="true"></span>
+        </button>
+      </div>
+
+        <div class="video-info">
+          <h3>AMV Edit</h3>
+          <p>High-energy anime motion edit.</p>
+        </div>
+
+      </div>
+
+      <!-- Event Coverage -->
+
+      <div class="video-card">
+
+      <div class="video-player" data-src="pohela B_1.mp4">
+        <button class="player-poster" aria-label="Play video">
+          <span class="play-btn" aria-hidden="true"></span>
+        </button>
+      </div>
+
+        <div class="video-info">
+          <h3>Event Coverage - Pohela Boishak</h3>
+          <p>Cinematic event storytelling visuals.</p>
+        </div>
+
+      </div>
+
+      <div class="video-card">
+
+      <div class="video-player" data-src="onuronon.mp4">
+        <button class="player-poster" aria-label="Play video">
+          <span class="play-btn" aria-hidden="true"></span>
+        </button>
+      </div>
+
+        <div class="video-info">
+          <h3>Event Coverage - Onuronon</h3>
+          <p>Professional music event coverage edit.</p>
+        </div>
+
+      </div>
+
+      <!-- Reels -->
+
+      <div class="video-card">
+
+      <div class="video-player" data-src="Nexus reel 1.mp4">
+        <button class="player-poster" aria-label="Play video">
+          <span class="play-btn" aria-hidden="true"></span>
+        </button>
+      </div>
+
+        <div class="video-info">
+          <h3>Short-form Reel</h3>
+          <p>Retention-focused social media reel.</p>
+        </div>
+
+      </div>
+
+      <div class="video-card">
+
+      <div class="video-player" data-src="Posterinnn.mp4">
+        <button class="player-poster" aria-label="Play video">
+          <span class="play-btn" aria-hidden="true"></span>
+        </button>
+      </div>
+
+        <div class="video-info">
+          <h3>Short-form Reel</h3>
+          <p>Fast-paced engaging visual storytelling.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="section container" id="contact">
+
+    <div class="section-tag">
+      Contact
+    </div>
+
+    <h2>
+      Let’s Create Something <span class="highlight">Cinematic.</span>
+    </h2>
+
+    <div class="contact-grid">
+
+      <!-- LEFT -->
+
+      <div class="contact-card">
+
+        <h3 style="font-size:30px;margin-bottom:20px;">
+          Contact Information
+        </h3>
+
+        <p style="color:#b6b6b6;line-height:1.8;">
+          Available for freelance editing,
+          visual storytelling, and creative collaborations.
+        </p>
+
+        <div class="socials">
+
+          <a href="mailto:fshourjomm@gmail.com">
+            Email → fshourjomm@gmail.com
+          </a>
+
+          <a href="https://www.instagram.com/shourjazz" target="_blank">
+            Instagram
+          </a>
+
+          <a href="https://www.linkedin.com/in/fardin-monowar-shourja-068a99224"
+            target="_blank">
+            LinkedIn
+          </a>
+
+          <a href="https://www.facebook.com/share/1Hb7eE8erQ/?mibextid=wwXIfr"
+            target="_blank">
+            Facebook
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+
+      <div class="contact-card">
+
+        <form action="https://formspree.io/f/mlgzqngo" method="POST">
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required>
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required>
+
+          <textarea
+            name="message"
+            placeholder="Your Message"></textarea>
+
+          <button type="submit">
+            Send Message
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Shourya. All rights reserved.
+  </footer>
+
+  <script>
+    (function(){
+      const indicator = document.querySelector('.scroll-indicator');
+      const scrollDot = document.querySelector('.scroll-indicator-dot');
+      const scrollPercent = document.querySelector('.scroll-indicator-percent');
+      const track = document.querySelector('.scroll-indicator-track');
+      let hideTimeout = null;
+
+      function updateScrollIndicator() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) : 0;
+        const travel = Math.max(0, track.clientHeight - scrollDot.clientHeight);
+        const posPx = Math.min(travel, Math.max(0, progress * travel));
+        scrollDot.style.transform = `translateX(-50%) translateY(${posPx}px)`;
+        scrollPercent.textContent = `${Math.round(progress * 100)}%`;
+      }
+
+      function showIndicator() {
+        if (!indicator) return;
+        indicator.classList.add('visible');
+        if (hideTimeout) clearTimeout(hideTimeout);
+        hideTimeout = setTimeout(() => indicator.classList.remove('visible'), 800);
+      }
+
+      window.addEventListener('scroll', function(){ updateScrollIndicator(); showIndicator(); }, { passive: true });
+      window.addEventListener('resize', updateScrollIndicator);
+      // Initial placement; keep hidden until user scrolls
+      updateScrollIndicator();
+    })();
+  </script>
+
+  <script>
+    // Replace poster with a native <video> element and lightweight custom controls
+    document.addEventListener('click', function (e) {
+      const btn = e.target.closest('.player-poster');
+      if (!btn) return;
+      const player = btn.closest('.video-player');
+      if (!player) return;
+      const src = player.dataset.src || player.getAttribute('data-src');
+      if (!src) return;
+
+      // Create native video element
+      const video = document.createElement('video');
+      video.className = 'native-video';
+      video.src = src;
+      video.preload = 'metadata';
+      video.playsInline = true;
+      video.autoplay = true;
+      video.muted = false;
+      video.style.zIndex = '4';
+
+      // Create custom controls container
+      const controls = document.createElement('div');
+      controls.className = 'custom-controls';
+      controls.innerHTML = `
+        <button class="ctrl-play" aria-label="Play">⏸</button>
+        <div class="ctrl-progress"><div class="ctrl-progress-bar"></div></div>
+        <div class="ctrl-time">0:00 / 0:00</div>
+        <button class="ctrl-mute" aria-label="Mute">🔈</button>
+        <button class="ctrl-full" aria-label="Fullscreen">⤢</button>
+      `;
+
+      // Replace poster with video + controls
+      player.innerHTML = '';
+      player.appendChild(video);
+      player.appendChild(controls);
+      controls.style.zIndex = '6';
+
+      const playBtn = controls.querySelector('.ctrl-play');
+      const progress = controls.querySelector('.ctrl-progress');
+      const progressBar = controls.querySelector('.ctrl-progress-bar');
+      const timeEl = controls.querySelector('.ctrl-time');
+      const muteBtn = controls.querySelector('.ctrl-mute');
+      const fullBtn = controls.querySelector('.ctrl-full');
+
+      function fmt(t){ if (!isFinite(t)) return '0:00'; const m=Math.floor(t/60); const s=Math.floor(t%60).toString().padStart(2,'0'); return `${m}:${s}`; }
+
+      video.addEventListener('loadedmetadata', () => {
+        // Update time and adjust player aspect for vertical videos
+        timeEl.textContent = `${fmt(0)} / ${fmt(video.duration)} `;
+        try {
+          const aspect = video.videoHeight / (video.videoWidth || 1);
+          // If video is notably taller than wide (vertical), expand player height
+          if (aspect > 1.2) {
+            player.style.paddingTop = (aspect * 100) + '%';
+          } else {
+            // keep default 16:9 for landscape-ish
+            player.style.paddingTop = '56.25%';
+          }
+          // ensure vertical videos are fully visible
+          video.style.objectFit = 'contain';
+        } catch (e) { /* ignore if metadata not available */ }
+      });
+
+      video.addEventListener('timeupdate', () => {
+        const pct = (video.currentTime / (video.duration || 1)) * 100;
+        progressBar.style.width = pct + '%';
+        timeEl.textContent = `${fmt(video.currentTime)} / ${fmt(video.duration || 0)}`;
+      });
+
+      // Initialize play button icon depending on autoplay/paused state
+      playBtn.textContent = video.paused ? '▶' : '⏸';
+      playBtn.addEventListener('click', () => {
+        if (video.paused) { video.play(); playBtn.textContent = '⏸'; }
+        else { video.pause(); playBtn.textContent = '▶'; }
+      });
+
+      video.addEventListener('click', () => {
+        if (video.paused) { video.play(); playBtn.textContent = '⏸'; }
+        else { video.pause(); playBtn.textContent = '▶'; }
+      });
+
+      progress.addEventListener('click', (ev) => {
+        const rect = progress.getBoundingClientRect();
+        const x = ev.clientX - rect.left;
+        const pct = Math.max(0, Math.min(1, x / rect.width));
+        video.currentTime = pct * (video.duration || 0);
+      });
+
+      muteBtn.addEventListener('click', () => {
+        video.muted = !video.muted;
+        muteBtn.textContent = video.muted ? '🔇' : '🔈';
+      });
+
+      fullBtn.addEventListener('click', () => {
+        if (document.fullscreenElement) document.exitFullscreen();
+        else player.requestFullscreen().catch(()=>{});
+      });
+
+      video.addEventListener('ended', () => { playBtn.textContent = '▶'; });
+    });
+  </script>
+
+  <script>
+    (function(){
+      // Show intro overlay immediately on load, then hide and enable scroll
+      const overlay = document.querySelector('.intro-overlay');
+      if (!overlay) return;
+
+      const SHOW_MS = 0; // start fade immediately once load completes
+      const ZOOM_MS = 900; // match the longer CSS transition
+
+      function hideOverlay(){
+        overlay.classList.add('zoom-out');
+        setTimeout(() => {
+          overlay.classList.remove('visible', 'zoom-out');
+          document.body.classList.remove('no-scroll');
+        }, ZOOM_MS);
+      }
+
+      // Start immediately after window load, with one animation frame for paint
+      window.addEventListener('load', function(){
+        requestAnimationFrame(hideOverlay);
+      });
+    })();
+  </script>
+
+  <script>
+    (function(){
+      const backgroundGlow = document.querySelector('.background-glow');
+      const cursorDot = document.querySelector('.cursor-dot');
+      const cursorBlur = document.querySelector('.cursor-blur');
+      const revealTargets = document.querySelectorAll('.hero-grid, .second-grid, .services, .portfolio-grid, .contact-grid, .service-card, .video-card, .contact-card, .main-hero, .tool');
+      const tiltTargets = document.querySelectorAll('.card, .service-card, .video-card, .contact-card');
+      const videoCards = document.querySelectorAll('.video-card');
+
+      function updateMouse(e) {
+        const x = e.clientX;
+        const y = e.clientY;
+        document.documentElement.style.setProperty('--mouse-x', `${x}px`);
+        document.documentElement.style.setProperty('--mouse-y', `${y}px`);
+
+        if (cursorDot) {
+          cursorDot.style.left = `${x}px`;
+          cursorDot.style.top = `${y}px`;
+        }
+        if (cursorBlur) {
+          cursorBlur.style.left = `${x}px`;
+          cursorBlur.style.top = `${y}px`;
+        }
+      }
+
+      function revealOnScroll() {
+        revealTargets.forEach((element) => {
+          const rect = element.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 100) {
+            element.classList.add('active');
+          }
+        });
+      }
+
+      // Removed hover play-preview to avoid showing play overlay on hover.
+      // Previously created a `.video-preview` element for each video card.
+
+      revealTargets.forEach((element) => element.classList.add('reveal'));
+      revealOnScroll();
+
+      window.addEventListener('mousemove', updateMouse);
+      window.addEventListener('scroll', revealOnScroll, { passive: true });
+      window.addEventListener('resize', revealOnScroll);
+
+      tiltTargets.forEach((card) => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / 20) * -1;
+          const rotateY = (x - centerX) / 20;
+
+          card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01,1.01,1.01)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+        });
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
